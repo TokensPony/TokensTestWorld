@@ -68,7 +68,7 @@ public class LettersBoardController : UdonSharpBehaviour
 		}
 	}
 
-	public void addVowel()
+	public void drawVowel()
     {
 		if (!Networking.IsOwner(this.gameObject))
 		{
@@ -93,13 +93,13 @@ public class LettersBoardController : UdonSharpBehaviour
 					Debug.Log("Reshuffling Vowels");
 					shuffle(vowel);
 					vPos = 0;
-					addVowel();
+					drawVowel();
 				}
 			}
 		}
 	}
 
-	public void addConsonant()
+	public void drawConsonant()
     {
 		if (!Networking.IsOwner(this.gameObject))
 		{
@@ -124,7 +124,7 @@ public class LettersBoardController : UdonSharpBehaviour
 					Debug.Log("Reshuffling Consonant");
 					shuffle(consonant);
 					cPos = 0;
-					addConsonant();
+					drawConsonant();
 				}
 			}
 		}
@@ -132,10 +132,17 @@ public class LettersBoardController : UdonSharpBehaviour
 
     public void reset()
     {
-		drawnLetters = "";
-		globalDrawnLetters = drawnLetters;
-		lettersText.text = drawnLetters;
-		RequestSerialization();
+		if (!Networking.IsOwner(this.gameObject))
+		{
+			Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+		}
+		if (Networking.IsOwner(this.gameObject))
+		{
+			drawnLetters = "";
+			globalDrawnLetters = drawnLetters;
+			lettersText.text = drawnLetters;
+			RequestSerialization();
+		}
     }
 
     public char[] shuffle(char[] a)

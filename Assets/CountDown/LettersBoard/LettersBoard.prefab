@@ -475,7 +475,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: addVowel
+          m_StringArgument: drawVowel
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6922998530579627795
@@ -605,7 +605,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: addConsonant
+          m_StringArgument: drawConsonant
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6922998530684234502
